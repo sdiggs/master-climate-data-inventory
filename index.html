@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Master Climate Dataset Inventory v2.0 — 282 Datasets</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Master Climate &amp; Ocean Dataset Inventory — v2.2</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Arial,Helvetica,sans-serif;font-size:13px;background:#f5f6f8;color:#1a1a2e;padding:16px}
@@ -11,51 +11,60 @@ body{font-family:Arial,Helvetica,sans-serif;font-size:13px;background:#f5f6f8;co
 .hdr{margin-bottom:14px}
 .hdr h1{font-size:20px;font-weight:700;color:#1a3a5c;margin-bottom:4px}
 .hdr p{font-size:12px;color:#555;margin-bottom:2px}
-.v-badge{display:inline-block;background:#0f6e56;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
+.v-badge{display:inline-block;background:#0f6e56;color:#fff;font-size:10px;font-weight:700;padding:2px 9px;border-radius:10px;margin-left:8px;vertical-align:middle}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}
 .stat{background:#fff;border:1px solid #dde3ea;border-radius:8px;padding:12px;text-align:center}
 .stat .n{font-size:26px;font-weight:700;color:#1a3a5c}
 .stat .n.green{color:#0f6e56}.stat .n.red{color:#a32d2d}.stat .n.amber{color:#854f0b}
 .stat .l{font-size:11px;color:#666;margin-top:3px;line-height:1.3}
-.controls{background:#fff;border:1px solid #dde3ea;border-radius:8px;padding:10px 14px;margin-bottom:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.controls input{flex:1;min-width:180px;padding:7px 10px;border:1px solid #ccd3da;border-radius:6px;font-size:12px;outline:none}
-.controls input:focus{border-color:#1a3a5c}
-.controls select{padding:7px 10px;border:1px solid #ccd3da;border-radius:6px;font-size:12px;background:#fff;outline:none;cursor:pointer}
-.controls .count{margin-left:auto;font-size:12px;color:#666;white-space:nowrap;font-weight:500}
+.controls{background:#fff;border:1px solid #dde3ea;border-radius:8px;padding:10px 14px;margin-bottom:10px}
+.ctrl-row1{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+.ctrl-row1 input{flex:1;min-width:200px;padding:7px 10px;border:1px solid #ccd3da;border-radius:6px;font-size:12px;outline:none}
+.ctrl-row1 input:focus{border-color:#1a3a5c}
+.ctrl-row1 select{padding:7px 10px;border:1px solid #ccd3da;border-radius:6px;font-size:12px;background:#fff;outline:none;cursor:pointer}
+.count{margin-left:auto;font-size:12px;color:#666;white-space:nowrap;font-weight:500}
+.pill-label{font-size:11px;color:#666;font-weight:600;margin-bottom:7px}
+.pill-hint{font-size:10px;color:#aaa;font-style:italic;margin-left:6px;font-weight:400}
+.pills{display:flex;flex-wrap:wrap;gap:7px}
+.pill{padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;
+  border:2px solid var(--pbdr);background:var(--pbg);color:var(--ptxt);
+  transition:background .15s,color .15s,border-color .15s,box-shadow .15s;user-select:none}
+.pill:hover{filter:brightness(0.95);box-shadow:0 1px 4px rgba(0,0,0,0.12)}
+.pill.active{background:var(--abg);color:var(--atxt);border-color:var(--abg);box-shadow:0 2px 6px rgba(0,0,0,0.18)}
 .tbl-wrap{background:#fff;border:1px solid #dde3ea;border-radius:8px;overflow:hidden}
 .tbl-scroll{overflow-x:auto}
 table{width:100%;border-collapse:collapse;min-width:1200px}
-thead th{background:#1a3a5c;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:9px 10px;text-align:left;white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0;z-index:2}
+thead th{background:#1a3a5c;color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;
+  letter-spacing:.05em;padding:9px 10px;text-align:left;white-space:nowrap;
+  cursor:pointer;user-select:none;position:sticky;top:0;z-index:2}
 thead th:hover{background:#22507a}
 thead th.sorted-asc::after{content:" ▲";opacity:.8}
 thead th.sorted-desc::after{content:" ▼";opacity:.8}
 thead th:not(.sorted-asc):not(.sorted-desc)::after{content:" ⇅";opacity:.3}
 td{padding:7px 10px;border-bottom:1px solid #edf0f4;vertical-align:top;font-size:12px;line-height:1.45}
 tr:last-child td{border-bottom:none}
-tr.row-even{background:#f8fafc}
-tr.row-odd{background:#fff}
-tr.row-atrisk{background:#fff5f5}
-tr.row-discontinued{background:#ffe8e8}
+tr.row-even{background:#f8fafc}tr.row-odd{background:#fff}
+tr.row-atrisk{background:#fff5f5}tr.row-discontinued{background:#ffe8e8}
 tr.row-nyce{background:#f0faf5}
 tr:hover td{background:#e8f0fb!important}
 .name-main{font-weight:700;color:#1a3a5c;font-size:12px}
 .name-short{font-size:10px;color:#888;margin-top:1px}
 .url-arrow{display:inline-block;margin-left:4px;font-size:10px;color:#185fa5;text-decoration:none;opacity:.7}
 .url-arrow:hover{opacity:1}
-.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;white-space:nowrap}
-.b-IS{background:#E1F5EE;color:#085041}.b-RS{background:#EEEDFE;color:#3C3489}
-.b-BLD{background:#E6F1FB;color:#0C447C}.b-RAN{background:#FAEEDA;color:#633806}
-.b-MDL{background:#FAEEDA;color:#854f0b}.b-IDX{background:#F1EFE8;color:#444441}
-.b-RPO{background:#FBEAF0;color:#4B1528}
+.tbadge{display:inline-block;padding:2px 7px;border-radius:10px;font-size:10px;font-weight:600;white-space:nowrap}
+.tb-IS{background:#D4F4E8;color:#0a5c3a}.tb-RS{background:#E4E2F8;color:#3a2e9e}
+.tb-BLD{background:#D6E8FA;color:#0d4a8a}.tb-RAN{background:#FBF0D5;color:#6b3d00}
+.tb-MDL{background:#FAE0D5;color:#8a2e0e}.tb-IDX{background:#EAEAEA;color:#444444}
+.tb-RPO{background:#FAD9E4;color:#882040}
 .b-ok{background:#EAF3DE;color:#27500A}.b-risk{background:#FCEBEB;color:#791F1F}
 .b-disc{background:#F09595;color:#501313}
 .b-nyce{background:#EAF3DE;color:#27500A;font-size:9px}.b-no{background:#F1EFE8;color:#888;font-size:9px}
 .src-tag{display:inline-block;padding:1px 5px;border-radius:6px;font-size:9px;background:#e8edf2;color:#445;margin-right:2px;white-space:nowrap}
 .curator-email{font-size:10px;color:#185fa5;display:block;margin-top:2px;word-break:break-all}
-.geo-col{font-size:10px;color:#556;min-width:130px;max-width:180px;line-height:1.4}
-.agency-col{min-width:120px;max-width:150px;font-size:11px;color:#334}
-.params-col{min-width:150px;max-width:210px;font-size:11px;color:#445}
-.curator-col{min-width:110px;max-width:155px;font-size:11px}
+.agency-col{min-width:110px;max-width:145px;font-size:11px;color:#334}
+.params-col{min-width:145px;max-width:200px;font-size:11px;color:#445}
+.geo-col{font-size:10px;color:#556;min-width:130px;max-width:175px;line-height:1.4}
+.curator-col{min-width:110px;max-width:150px;font-size:11px}
 .empty{text-align:center;padding:3rem;color:#888;font-size:13px}
 .footer{margin-top:10px;font-size:10px;color:#999;text-align:right}
 </style>
@@ -63,19 +72,20 @@ tr:hover td{background:#e8f0fb!important}
 <body>
 <div class="container">
 <div class="hdr">
-  <h1>Master Climate &amp; Ocean Dataset Inventory — v2.0 (April 2026)<span class="v-badge">282 datasets</span></h1>
-  <p>Sources: GOMO FY25 (NOAA) · Insurance and Reinsurance Users · Keeling Curve Foundation · Expert review</p>
-  <p>Controlled vocabularies: domain · obs_type · platform · geo_scope · update_freq · archive_status · disruption · primary_users · usage_classes</p>
+  <h1>Master Climate &amp; Ocean Dataset Inventory<span class="v-badge">v2.2 — 286 datasets</span></h1>
+  <p>April 2026 · SC Diggs / NYCE / KCF / SIO · Sources: GOMO FY25 (NOAA) · Insurance &amp; Reinsurance Users · Keeling Curve Foundation · Expert review</p>
+  <p>v2.2: DS-068 JGOFS URL corrected → bco-dmo.org/program/2013</p>
 </div>
 <div class="stats">
-  <div class="stat"><div class="n">282</div><div class="l">Total unique datasets</div></div>
+  <div class="stat"><div class="n">286</div><div class="l">Total unique datasets</div></div>
   <div class="stat"><div class="n green">56</div><div class="l">NYCE-relevant<br>(Keeling signal)</div></div>
   <div class="stat"><div class="n red">17</div><div class="l">At risk / disrupted<br>or discontinued</div></div>
   <div class="stat"><div class="n amber">6</div><div class="l">Expert source lists<br>consolidated</div></div>
 </div>
 <div class="controls">
-  <input type="text" id="search" placeholder="Search name, agency, curator, parameters, geographic coverage, notes…">
-  <select id="domainFilter"><option value="">All domains</option><option value="ATM-COMP">Atmosphere / Composition</option>
+  <div class="ctrl-row1">
+    <input type="text" id="search" placeholder="Search name, agency, abbrev, parameters, geographic coverage…">
+    <select id="domainFilter"><option value="">All domains</option><option value="ATM-COMP">Atmosphere / Composition</option>
 <option value="ATM-RAD">Atmosphere / Radiation</option>
 <option value="ATM-WX">Atmosphere / Weather</option>
 <option value="CLI-IDX">Climate Indices</option>
@@ -93,52 +103,54 @@ tr:hover td{background:#e8f0fb!important}
 <option value="PALEO">Paleoclimate</option>
 <option value="PRECIP">Precipitation</option>
 <option value="SOC-ECO">Socioeconomic</option></select>
-  <select id="obsFilter"><option value="">All obs types</option><option value="IS">In situ</option>
-<option value="RS">Remote sensing</option>
-<option value="RAN">Reanalysis</option>
-<option value="MDL">Model output</option>
-<option value="BLD">Blended</option>
-<option value="IDX">Derived index</option>
-<option value="RPO">Repository</option></select>
-  <select id="disruFilter">
-    <option value="">Any status</option>
-    <option value="OK">Operational</option>
-    <option value="AT-RISK">At risk</option>
-    <option value="DISCONTINUED">Discontinued</option>
-  </select>
-  <select id="nyceFilter">
-    <option value="">NYCE: any</option>
-    <option value="Yes">NYCE: Yes</option>
-    <option value="No">NYCE: No</option>
-  </select>
-  <select id="srcFilter"><option value="">All sources</option><option value="GOMO">GOMO FY25</option>
+    <select id="disruFilter">
+      <option value="">Any status</option>
+      <option value="OK">Operational</option>
+      <option value="AT-RISK">At risk</option>
+      <option value="DISCONTINUED">Discontinued</option>
+    </select>
+    <select id="nyceFilter">
+      <option value="">NYCE: any</option>
+      <option value="Yes">NYCE: Yes</option>
+      <option value="No">NYCE: No</option>
+    </select>
+    <select id="srcFilter"><option value="">All sources</option><option value="GOMO">GOMO FY25</option>
 <option value="LM">Liberty Mutual</option>
 <option value="RAA">Reinsurance Assoc.</option>
 <option value="KCF">Keeling Foundation</option>
 <option value="EXPERT">Expert review</option>
 <option value="COMPILED">Research compilation</option></select>
-  <span class="count" id="count">282 of 282 shown</span>
+    <span class="count" id="count">286 of 286 shown</span>
+  </div>
+  <div class="pill-label">Observation type<span class="pill-hint">click to filter · multiple selections allowed · click again to deselect</span></div>
+  <div class="pills" id="pillRow"><button class="pill" data-obs="IS" style="--pbg:#D4F4E8;--ptxt:#0a5c3a;--pbdr:#7FCFB0;--abg:#1D9E75;--atxt:#fff">In situ</button>
+<button class="pill" data-obs="BLD" style="--pbg:#D6E8FA;--ptxt:#0d4a8a;--pbdr:#7BB5E8;--abg:#378ADD;--atxt:#fff">Blended</button>
+<button class="pill" data-obs="RS" style="--pbg:#E4E2F8;--ptxt:#3a2e9e;--pbdr:#A99EE8;--abg:#7F77DD;--atxt:#fff">Remote sensing</button>
+<button class="pill" data-obs="RPO" style="--pbg:#FAD9E4;--ptxt:#882040;--pbdr:#E899B8;--abg:#D4537E;--atxt:#fff">Repository</button>
+<button class="pill" data-obs="RAN" style="--pbg:#FBF0D5;--ptxt:#6b3d00;--pbdr:#E8C07A;--abg:#BA7517;--atxt:#fff">Reanalysis</button>
+<button class="pill" data-obs="MDL" style="--pbg:#FAE0D5;--ptxt:#8a2e0e;--pbdr:#EBA07A;--abg:#D85A30;--atxt:#fff">Model output</button>
+<button class="pill" data-obs="IDX" style="--pbg:#EAEAEA;--ptxt:#444444;--pbdr:#B0AFAC;--abg:#888780;--atxt:#fff">Derived index</button></div>
 </div>
 <div class="tbl-wrap"><div class="tbl-scroll">
 <table id="tbl">
 <thead><tr>
   <th style="width:50px" data-col="id">#</th>
-  <th style="width:195px" data-col="name">Dataset</th>
-  <th style="width:135px" data-col="agency">Agency / steward</th>
+  <th style="width:190px" data-col="name">Dataset</th>
+  <th style="width:130px" data-col="agency">Agency / steward</th>
   <th style="width:110px" data-col="domain">Domain</th>
-  <th style="width:80px" data-col="obs">Type</th>
-  <th style="width:175px" data-col="params">Key parameters</th>
+  <th style="width:90px" data-col="obs">Type</th>
+  <th style="width:170px" data-col="params">Key parameters</th>
   <th style="width:155px" data-col="geo">Geographic coverage</th>
   <th style="width:80px" data-col="temporal">Temporal</th>
-  <th style="width:135px" data-col="curator">Curator / PI</th>
-  <th style="width:62px" data-col="disruption">Status</th>
+  <th style="width:130px" data-col="curator">Curator / PI</th>
+  <th style="width:60px" data-col="disruption">Status</th>
   <th style="width:46px" data-col="nyce">NYCE</th>
   <th style="width:95px" data-col="sources_label">Source list</th>
 </tr></thead>
 <tbody id="tbody"></tbody>
 </table>
 </div></div>
-<div class="footer">Master Climate &amp; Ocean Dataset Inventory v2.0 · April 2026 · SC Diggs / NYCE / KCF / SIO · 282 datasets</div>
+<div class="footer">Master Climate &amp; Ocean Dataset Inventory v2.2 · April 2026 · SC Diggs / NYCE / KCF / SIO · 286 datasets · v2.2 change: DS-068 JGOFS URL → bco-dmo.org/program/2013</div>
 </div>
 <script>
 const ALL_DS=[
@@ -196,8 +208,8 @@ const ALL_DS=[
 {id:"DS-052",name:"NOAA Saildrone USV Data (PMEL Ocean Climate Stations)",short:"Saildrone",agency:"NOAA PMEL",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"In situ",obs_code:"IS",curator:"Meghan Cronin (PMEL)",email:"meghan.cronin@noaa.gov",url:"https://www.pmel.noaa.gov/ocs/saildrone",doi:"",geo:"Global ocean",temporal:"2017\u2013ongoing",params:"SST, AIR-T, WIND, HUMID, SLP, pCO2-SW",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"Commercial data buy from Saildrone Inc.; hi-res data unarchived; >$10M cost"},
 {id:"DS-053",name:"DBO \u2013 Distributed Biological Observatory (Water Column/Sediment)",short:"DBO-HYDRO",agency:"UMCES",domain:"Ocean / Biogeochemistry",dom_code:"OCN-BGC",obs:"In situ",obs_code:"IS",curator:"Jackie Grebmeier (UMCES)",email:"jgrebmei@umces.edu",url:"https://dbo.cbl.umces.edu",doi:"",geo:"Pacific Arctic (Northern Chukchi Sea)",temporal:"2010\u2013ongoing",params:"O2-ISO, PHYTO-COMP, BENTHOS, SEDIMENT-CHEM",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"Pacific Arctic change detection array; benthic/pelagic coupling"},
 {id:"DS-054",name:"DBO \u2013 Ocean Acidification Observations Alaska",short:"DBO-OA",agency:"University of Alaska Fairbanks",domain:"Ocean / Biogeochemistry",dom_code:"OCN-BGC",obs:"In situ",obs_code:"IS",curator:"Natalie Monacci (UAF)",email:"nmonacci@alaska.edu",url:"https://www.ncei.noaa.gov/access/ocean-carbon-acidification-data-system-portal",doi:"",geo:"Alaskan coastal waters",temporal:"2010\u2013ongoing",params:"pH, ALK, DIC, pCO2-SW",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"DBO Arctic OA; NCEI OCADS archive"},
-{id:"DS-055",name:"ChukSA \u2013 Chukchi Sea ADCP Climatology",short:"ChukSA",agency:"WHOI",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"Blended",obs_code:"BLD",curator:"Bob Pickart (WHOI)",email:"rpickart@whoi.edu",url:"https://www.ncei.noaa.gov",doi:"",geo:"Chukchi Sea shelf and continental slope",temporal:"2000\u2013ongoing",params:"CURRENTS",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"Aggregated shipboard ADCP velocities; Chukchi Sea shelf/slope"},
-{id:"DS-056",name:"SIO High-Resolution XBT Transects \u2013 Delayed Mode",short:"SIO-XBT",agency:"SIO / UC San Diego",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"In situ",obs_code:"IS",curator:"Janet Sprintall (SIO)",email:"jsprintall@ucsd.edu",url:"https://www.ncei.noaa.gov",doi:"",geo:"Global ocean transects; boundary current focus",temporal:"1980\u2013ongoing",params:"TEMP-PROFILE",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"Boundary current research; upper OHC; NCEI quarterly submission"},
+{id:"DS-055",name:"ChukSA \u2013 Chukchi Sea ADCP Climatology",short:"ChukSA",agency:"WHOI",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"Blended",obs_code:"BLD",curator:"Bob Pickart (WHOI)",email:"rpickart@whoi.edu",url:"https://www2.whoi.edu/staff/rpickart/chukchi-sea/",doi:"",geo:"Chukchi Sea shelf and continental slope",temporal:"2000\u2013ongoing",params:"CURRENTS",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"Aggregated shipboard ADCP velocities; Chukchi Sea shelf/slope"},
+{id:"DS-056",name:"SIO High-Resolution XBT Transects \u2013 Delayed Mode",short:"SIO-XBT",agency:"SIO / UC San Diego",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"In situ",obs_code:"IS",curator:"Janet Sprintall (SIO)",email:"jsprintall@ucsd.edu",url:"https://www-hrx.ucsd.edu/",doi:"",geo:"Global ocean transects; boundary current focus",temporal:"1980\u2013ongoing",params:"TEMP-PROFILE",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"Boundary current research; upper OHC; NCEI quarterly submission"},
 {id:"DS-057",name:"AOML XBT Network (real-time + delayed mode)",short:"AOML-XBT",agency:"NOAA AOML",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"In situ",obs_code:"IS",curator:"Shenfu Dong (AOML)",email:"shenfu.dong@noaa.gov",url:"https://www.aoml.noaa.gov/phod/xbtscience",doi:"",geo:"Atlantic basin (12 repeat transects)",temporal:"1970\u2013ongoing",params:"TEMP-PROFILE",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"~12 repeat transects; 4-5\u00d7/yr; 4000-8000 profiles/yr"},
 {id:"DS-058",name:"California Current Gliders (NRT + Delayed Mode + Climatology)",short:"CA-Gliders",agency:"SIO / UCSD",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"In situ",obs_code:"IS",curator:"Daniel Rudnick (SIO)",email:"drudnick@ucsd.edu",url:"https://spraydata.ucsd.edu/erddap",doi:"",geo:"California coast, to 500 km offshore",temporal:"2005\u2013ongoing",params:"TEMP, SALINITY, CURRENTS, DENSITY",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"SoCal Index; IOOS Glider DAC; real-time to GTS for NDBC/NWS"},
 {id:"DS-059",name:"SOCAT \u2013 Surface Ocean CO\u2082 Atlas",short:"SOCAT",agency:"Intl (NOAA; ICOS; ESA; ~100 institutions)",domain:"Ocean / Biogeochemistry",dom_code:"OCN-BGC",obs:"In situ",obs_code:"IS",curator:"Dorothee Bakker (UEA)",email:"d.c.e.bakker@uea.ac.uk",url:"https://www.socat.info",doi:"",geo:"Global ocean",temporal:"1957\u2013ongoing",params:"fCO2-SW, SST, SALINITY, ATM-CO2",disruption:"OK",nyce:"Yes",funding:"",sources_label:"GOMO FY25",notes:">33M data points; primary input to Global Carbon Budget; SOCAT v2024"},
@@ -209,7 +221,7 @@ const ALL_DS=[
 {id:"DS-065",name:"Sentinel-3 OLCI Ocean Colour",short:"Sentinel-3-OLCI",agency:"ESA / Copernicus",domain:"Ocean / Biogeochemistry",dom_code:"OCN-BGC",obs:"Remote sensing",obs_code:"RS",curator:"ESA Copernicus Support",email:"copernicus-support@ecmwf.int",url:"https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-3",doi:"",geo:"Global ocean + coastal",temporal:"2016\u2013ongoing",params:"CHL-A, OCEAN-COLOUR, TURBIDITY, CDOM",disruption:"OK",nyce:"No",funding:"",sources_label:"Expert review",notes:"Operational successor to MODIS Aqua; 300 m resolution"},
 {id:"DS-066",name:"ESA Ocean Colour CCI",short:"ESA-OC-CCI",agency:"ESA CCI",domain:"Ocean / Biogeochemistry",dom_code:"OCN-BGC",obs:"Remote sensing",obs_code:"RS",curator:"ESA CCI Ocean Colour Team",email:"cci@esa.int",url:"https://climate.esa.int/en/projects/ocean-colour",doi:"",geo:"Global ocean",temporal:"1997\u2013ongoing",params:"CHL-A, OCEAN-COLOUR, RRS",disruption:"OK",nyce:"No",funding:"",sources_label:"Research compilation",notes:"Merged multi-sensor ocean colour CDR"},
 {id:"DS-067",name:"GlobColour \u2013 Merged Multi-Sensor Ocean Colour Archive",short:"GlobColour",agency:"ESA / ACRI-ST",domain:"Ocean / Biogeochemistry",dom_code:"OCN-BGC",obs:"Remote sensing",obs_code:"RS",curator:"GlobColour support team",email:"helpdesk@globcolour.info",url:"https://www.globcolour.info",doi:"",geo:"Global ocean",temporal:"1997\u2013ongoing",params:"CHL-A, OCEAN-COLOUR",disruption:"OK",nyce:"No",funding:"",sources_label:"Research compilation",notes:"Operational merged ocean colour; cross-sensor consistency"},
-{id:"DS-068",name:"JGOFS Legacy Data \u2013 Joint Global Ocean Flux Study",short:"JGOFS",agency:"NSF / intl (BCO-DMO; PANGAEA; BODC)",domain:"Ocean / Biogeochemistry",dom_code:"OCN-BGC",obs:"In situ",obs_code:"IS",curator:"Danie Kinkade (WHOI/BCO-DMO)",email:"dkinkade@whoi.edu",url:"https://www.bco-dmo.org/program/2055",doi:"",geo:"Global ocean",temporal:"1988\u20132003",params:"pCO2-SW, CHL-A, SEDIMENT-TRAP, PRIMARY-PROD, DOC",disruption:"OK",nyce:"No",funding:"",sources_label:"Expert review",notes:"Foundational BGC baseline; HOT/BATS time series included"},
+{id:"DS-068",name:"JGOFS Legacy Data \u2013 Joint Global Ocean Flux Study",short:"JGOFS",agency:"NSF / intl (BCO-DMO; PANGAEA; BODC)",domain:"Ocean / Biogeochemistry",dom_code:"OCN-BGC",obs:"In situ",obs_code:"IS",curator:"Danie Kinkade (WHOI/BCO-DMO)",email:"dkinkade@whoi.edu",url:"https://www.bco-dmo.org/program/2013",doi:"",geo:"Global ocean",temporal:"1988\u20132003",params:"pCO2-SW, CHL-A, SEDIMENT-TRAP, PRIMARY-PROD, DOC",disruption:"OK",nyce:"No",funding:"",sources_label:"Expert review",notes:"Foundational BGC baseline; HOT/BATS time series included. BCO-DMO program/2055 is correct URL; WHOI "},
 {id:"DS-069",name:"ICES Oceanographic Database",short:"ICES",agency:"International Council for the Exploration of the Sea",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"In situ",obs_code:"IS",curator:"ICES Secretariat",email:"info@ices.dk",url:"https://www.ices.dk/data",doi:"",geo:"Regional (see notes)",temporal:"1900\u2013ongoing",params:"T-PROF, S-PROF, NUTS, ZOOPLANKTON, FISHERIES-DATA",disruption:"OK",nyce:"No",funding:"",sources_label:"Expert review",notes:"Longest continuous N. Atlantic oceanographic records; fisheries linkage"},
 {id:"DS-070",name:"OBIS \u2013 Ocean Biodiversity Information System",short:"OBIS",agency:"IOC-UNESCO / GBIF-linked",domain:"Ocean / Biology",dom_code:"OCN-BIO",obs:"In situ",obs_code:"IS",curator:"OBIS Secretariat",email:"helpdesk@obis.org",url:"https://obis.org",doi:"",geo:"Global ocean",temporal:"1800\u2013ongoing",params:"SPECIES-OCC, BIODIVERSITY",disruption:"OK",nyce:"No",funding:"",sources_label:"Expert review",notes:"100M+ marine species occurrence records; climate-biodiversity nexus"},
 {id:"DS-071",name:"Bio-GO-SHIP eDNA and Biodiversity Data",short:"Bio-GOSHIP",agency:"MSU (Northern Gulf Institute) + UC Irvine",domain:"Ocean / Biology",dom_code:"OCN-BIO",obs:"In situ",obs_code:"IS",curator:"Luke Thompson (NOAA)",email:"luke.thompson@noaa.gov",url:"https://www.bco-dmo.org",doi:"",geo:"Global ocean",temporal:"2018\u2013ongoing",params:"eDNA-SEQUENCES, BIODIVERSITY, ASV",disruption:"OK",nyce:"No",funding:"",sources_label:"GOMO FY25",notes:"eDNA from GO-SHIP cruises; archived at NCBI + OBIS"},
@@ -423,24 +435,38 @@ const ALL_DS=[
 {id:"DS-279",name:"NOAA Digital Coast \u2013 Sea Level Rise Viewer",short:"SLR-Viewer",agency:"NOAA Office for Coastal Management",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"Model output",obs_code:"MDL",curator:"NOAA OCM",email:"coastal.info@noaa.gov",url:"https://coast.noaa.gov/slr",doi:"",geo:"United States coastline (community-level resolution)",temporal:"2012\u2013ongoing",params:"SEA-LEVEL, FLOOD-FREQ, SLR-SCENARIOS, EXTREME-WATER-LEVELS",disruption:"OK",nyce:"No",funding:"",sources_label:"Reinsurance Assoc.",notes:"Community-level SLR modeling with visualizations; future flood frequency changes; extreme water leve"},
 {id:"DS-280",name:"NOAA NALCMS \u2013 North American Land Cover Change",short:"NALCMS",agency:"USGS / CEC (Commission for Environmental Cooperation)",domain:"Land / Vegetation",dom_code:"LND-VEG",obs:"Remote sensing",obs_code:"RS",curator:"USGS EROS",email:"lsds.client.services@usgs.gov",url:"https://www.cec.org/north-american-environmental-atlas/land-cover",doi:"",geo:"North America (Canada + USA + Mexico; 30 m)",temporal:"2005\u2013ongoing",params:"LAND-COVER, LAND-CHANGE",disruption:"OK",nyce:"No",funding:"",sources_label:"Reinsurance Assoc.",notes:"North American land cover change raster; tri-national product; 30 m resolution; 2005/2010/2015/2020"},
 {id:"DS-281",name:"USFS Federal Fire Occurrence Database (FPA-FOD)",short:"FPA-FOD",agency:"USDA Forest Service / USGS",domain:"Land / Fire",dom_code:"LND-FIRE",obs:"In situ",obs_code:"IS",curator:"Karen Short (USFS Rocky Mountain Research Station)",email:"kshort@fs.fed.us",url:"https://www.fs.usda.gov/rds/archive/Catalog/RDS-2013-0009",doi:"",geo:"United States (CONUS + Alaska + Hawaii)",temporal:"1992\u2013ongoing",params:"FIRE-LOCATION, FIRE-SIZE, FIRE-CAUSE, FIRE-DATE",disruption:"OK",nyce:"No",funding:"",sources_label:"Reinsurance Assoc.",notes:"~2.3M wildfire records 1992\u20132020; cause of ignition; size; location; insurance modeling baseline"},
-{id:"DS-282",name:"SEDAC \u2013 NASA Socioeconomic Data and Applications Center",short:"SEDAC",agency:"NASA / Columbia University (LDEO)",domain:"Socioeconomic",dom_code:"SOC-ECO",obs:"Repository",obs_code:"RPO",curator:"Alex de Sherbinin (LDEO/Columbia)",email:"sedac@ciesin.columbia.edu",url:"https://sedac.ciesin.columbia.edu",doi:"",geo:"Global",temporal:"1993\u2013ongoing",params:"POPULATION, LAND-USE, VULNERABILITY, CLIMATE-EXPOSURE, CONFLICT, MIGRATION",disruption:"OK",nyce:"Yes",funding:"",sources_label:"Expert review",notes:"NASA archive for socioeconomic-environment data; gridded population; climate vulnerability; exposure"}
+{id:"DS-282",name:"SEDAC \u2013 NASA Socioeconomic Data and Applications Center",short:"SEDAC",agency:"NASA / Columbia University (LDEO)",domain:"Socioeconomic",dom_code:"SOC-ECO",obs:"Repository",obs_code:"RPO",curator:"Alex de Sherbinin (LDEO/Columbia)",email:"sedac@ciesin.columbia.edu",url:"https://sedac.ciesin.columbia.edu",doi:"",geo:"Global",temporal:"1993\u2013ongoing",params:"POPULATION, LAND-USE, VULNERABILITY, CLIMATE-EXPOSURE, CONFLICT, MIGRATION",disruption:"OK",nyce:"Yes",funding:"",sources_label:"Expert review",notes:"NASA archive for socioeconomic-environment data; gridded population; climate vulnerability; exposure"},
+{id:"DS-283",name:"NOAA U.S. Climate Normals",short:"US-Normals",agency:"NOAA NCEI",domain:"Atmosphere / Weather",dom_code:"ATM-WX",obs:"Derived index",obs_code:"IDX",curator:"Anthony Arguez (NCEI)",email:"ncei.info@noaa.gov",url:"https://www.ncei.noaa.gov/products/land-based-station/us-climate-normals",doi:"",geo:"United States (CONUS + territories; ~9,000 stations)",temporal:"1901\u2013ongoing",params:"AIR-T, PRECIP, SNOW-DEPTH, HUMID, WIND, CLOUD, SLP",disruption:"OK",nyce:"No",funding:"",sources_label:"Keeling Foundation \u00b7 Expert review",notes:"30-yr climatological averages recomputed each decade; 1991\u20132020 normals current. Used in engineering"},
+{id:"DS-284",name:"NOAA AVHRR Cloud Properties CDR (PATMOS-x)",short:"PATMOS-x",agency:"NOAA NCEI CDR Program / CIMSS",domain:"Atmosphere / Radiation",dom_code:"ATM-RAD",obs:"Remote sensing",obs_code:"RS",curator:"Andrew Heidinger (NOAA NESDIS / CIMSS)",email:"ncei.info@noaa.gov",url:"https://www.ncei.noaa.gov/products/climate-data-records/avhrr-cloud-properties-patmos",doi:"",geo:"Global",temporal:"1979\u2013ongoing",params:"CLOUD-FRAC, CLOUD-TOP-T, CLOUD-TOP-P, CLOUD-OPT-DEPTH, CLOUD-PHASE, CLOUD-TYPE",disruption:"OK",nyce:"No",funding:"",sources_label:"Keeling Foundation \u00b7 Expert review",notes:"Pathfinder Atmospheres Extended; >40-yr global cloud property CDR from AVHRR. Distinct from DS-248 ("},
+{id:"DS-285",name:"NOAA Global Drifter Program",short:"GDP",agency:"NOAA AOML",domain:"Ocean / Physical",dom_code:"OCN-PHY",obs:"In situ",obs_code:"IS",curator:"Rick Lumpkin (NOAA AOML)",email:"rick.lumpkin@noaa.gov",url:"https://www.aoml.noaa.gov/phod/gdp/",doi:"10.25921/7ntx-z961",geo:"Global ocean",temporal:"1979\u2013ongoing",params:"SST, SURFACE-CURRENTS, SLP, WIND",disruption:"OK",nyce:"No",funding:"",sources_label:"Keeling Foundation \u00b7 Expert review",notes:"~2500 active SVP drifters; primary source of global surface current climatology and near-surface SST"},
+{id:"DS-286",name:"SNOTEL \u2013 SNOwpack TELemetry Network",short:"SNOTEL",agency:"USDA NRCS",domain:"Cryosphere / Snow",dom_code:"CRYO-SNW",obs:"In situ",obs_code:"IS",curator:"USDA NRCS National Water and Climate Center",email:"wcc.nrcs@usda.gov",url:"https://www.nrcs.usda.gov/wps/portal/wcc/home/snowClimateMonitoring/snowpack/",doi:"",geo:"Western United States (high-elevation mountain sites; ~900 stations; 11 states)",temporal:"1979\u2013ongoing",params:"SWE, SNOW-DEPTH, PRECIP, SOIL-MOIST, SOIL-T, AIR-T",disruption:"OK",nyce:"No",funding:"",sources_label:"Keeling Foundation \u00b7 Expert review",notes:"~900 automated high-elevation sites; primary data for western US water supply forecasting. Supports "}
 ];
+const activeObs=new Set();
 let sortCol='id',sortDir=1;
-function obsClass(c){const m={'IS':'b-IS','RS':'b-RS','BLD':'b-BLD','RAN':'b-RAN','MDL':'b-MDL','IDX':'b-IDX','RPO':'b-RPO'};return m[c]||'b-IDX';}
+document.querySelectorAll('.pill').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const code=btn.dataset.obs;
+    if(activeObs.has(code)){activeObs.delete(code);btn.classList.remove('active');}
+    else{activeObs.add(code);btn.classList.add('active');}
+    render();
+  });
+});
+function obsClass(c){const m={'IS':'tb-IS','RS':'tb-RS','BLD':'tb-BLD','RAN':'tb-RAN','MDL':'tb-MDL','IDX':'tb-IDX','RPO':'tb-RPO'};return m[c]||'tb-IDX';}
 function rowClass(d,i){if(d.disruption==='DISCONTINUED')return'row-discontinued';if(d.disruption==='AT-RISK')return'row-atrisk';if(d.nyce==='Yes')return'row-nyce';return i%2===0?'row-even':'row-odd';}
-function dispClass(d){if(d.disruption==='DISCONTINUED')return'b-disc';if(d.disruption==='AT-RISK')return'b-risk';return'b-ok';}
-function dispLabel(d){if(d.disruption==='DISCONTINUED')return'Discontinued';if(d.disruption==='AT-RISK')return'At risk';return'OK';}
+function dispClass(d){return d.disruption==='DISCONTINUED'?'b-disc':d.disruption==='AT-RISK'?'b-risk':'b-ok';}
+function dispLabel(d){return d.disruption==='DISCONTINUED'?'Discontinued':d.disruption==='AT-RISK'?'At risk':'OK';}
 function render(){
   const q=document.getElementById('search').value.toLowerCase();
   const dom=document.getElementById('domainFilter').value;
-  const obs=document.getElementById('obsFilter').value;
   const dis=document.getElementById('disruFilter').value;
   const nyc=document.getElementById('nyceFilter').value;
   const src=document.getElementById('srcFilter').value;
+  const srcMap={'GOMO':'GOMO FY25','LM':'Liberty','RAA':'Reinsurance','KCF':'Keeling','EXPERT':'Expert','COMPILED':'Compiled'};
   let data=ALL_DS.filter(d=>{
     const txt=[d.name,d.short,d.agency,d.curator,d.params,d.geo,d.notes,d.sources_label].join(' ').toLowerCase();
-    const srcMatch=!src||d.sources_label.includes(src==='GOMO'?'GOMO FY25':src==='LM'?'Liberty':src==='RAA'?'Reinsurance':src==='KCF'?'Keeling':src==='EXPERT'?'Expert':'Compiled');
-    return(!q||txt.includes(q))&&(!dom||d.dom_code===dom)&&(!obs||d.obs_code===obs)&&(!dis||d.disruption===dis)&&(!nyc||d.nyce===nyc)&&srcMatch;
+    const obsMatch=activeObs.size===0||activeObs.has(d.obs_code);
+    const srcMatch=!src||d.sources_label.includes(srcMap[src]||src);
+    return(!q||txt.includes(q))&&(!dom||d.dom_code===dom)&&(!dis||d.disruption===dis)&&(!nyc||d.nyce===nyc)&&obsMatch&&srcMatch;
   });
   data.sort((a,b)=>{
     let av=a[sortCol]||'',bv=b[sortCol]||'';
@@ -454,15 +480,14 @@ function render(){
     const rc=rowClass(d,i);
     const urlLink=d.url?`<a class="url-arrow" href="${d.url}" target="_blank">↗</a>`:'';
     const doiLink=d.doi?` <a class="url-arrow" href="https://doi.org/${d.doi}" target="_blank">DOI</a>`:'';
-    const emailLink=d.email?`<a class="curator-email" href="mailto:${d.email}">${d.email.substring(0,32)}${d.email.length>32?'…':''}</a>`:'';
+    const emailLink=d.email?`<a class="curator-email" href="mailto:${d.email}">${d.email.substring(0,30)}${d.email.length>30?'…':''}</a>`:'';
     const funding=d.funding?` <span style="font-size:10px;color:#854f0b">${d.funding}M/yr</span>`:'';
     const srcTags=d.sources_label?d.sources_label.split(' · ').map(s=>`<span class="src-tag">${s}</span>`).join(''):'';
-    return`<tr class="${rc}"><td style="font-size:11px;color:#888;font-weight:600">${d.id}</td><td><span class="name-main">${d.name}${urlLink}${doiLink}</span><div class="name-short">${d.short}</div></td><td class="agency-col">${d.agency}</td><td style="font-size:11px">${d.domain}</td><td><span class="badge ${obsClass(d.obs_code)}">${d.obs}</span></td><td class="params-col">${d.params}</td><td class="geo-col">${d.geo}</td><td style="font-size:11px;color:#556;white-space:nowrap">${d.temporal}</td><td class="curator-col">${d.curator}${funding}${emailLink}</td><td><span class="badge ${dispClass(d)}">${dispLabel(d)}</span></td><td><span class="badge ${d.nyce==='Yes'?'b-nyce':'b-no'}">${d.nyce}</span></td><td style="font-size:10px">${srcTags}</td></tr>`;
+    return`<tr class="${rc}"><td style="font-size:11px;color:#888;font-weight:600">${d.id}</td><td><span class="name-main">${d.name}${urlLink}${doiLink}</span><div class="name-short">${d.short}</div></td><td class="agency-col">${d.agency}</td><td style="font-size:11px">${d.domain}</td><td><span class="tbadge ${obsClass(d.obs_code)}">${d.obs}</span></td><td class="params-col">${d.params}</td><td class="geo-col">${d.geo}</td><td style="font-size:11px;color:#556;white-space:nowrap">${d.temporal}</td><td class="curator-col">${d.curator}${funding}${emailLink}</td><td><span class="tbadge ${dispClass(d)}">${dispLabel(d)}</span></td><td><span class="tbadge ${d.nyce==='Yes'?'b-nyce':'b-no'}">${d.nyce}</span></td><td style="font-size:10px">${srcTags}</td></tr>`;
   }).join('');
 }
 document.getElementById('search').addEventListener('input',render);
-['domainFilter','obsFilter','disruFilter','nyceFilter','srcFilter'].forEach(id=>
-  document.getElementById(id).addEventListener('change',render));
+['domainFilter','disruFilter','nyceFilter','srcFilter'].forEach(id=>document.getElementById(id).addEventListener('change',render));
 document.querySelectorAll('thead th[data-col]').forEach(th=>{
   th.addEventListener('click',()=>{
     const col=th.dataset.col;
